@@ -1,0 +1,25 @@
+<div class="module-dataset" ng-controller="DatasetCtrl">
+
+<h3>dataset</h3>
+
+<button ng-click="load()">load</button>
+
+<table class="table table-stripped" ng-repeat="d in days">
+
+<thead>
+
+<tr>
+  <td>{{ d[0].time | date:"dd.MM.yyyy" }}</td>
+</tr>
+</thead>
+
+<tbody>
+<tr ng-repeat="e in d">
+  <td><small>{{ e.time | date:"HH:mm:ss" }}</small></td>
+  <td href="{{ e.url }}">{{ e.title }}</td>
+</tr>
+ </tbody>
+
+</table>
+
+</div>
