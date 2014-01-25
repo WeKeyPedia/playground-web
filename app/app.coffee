@@ -6,6 +6,7 @@ App = angular.module('app', [
   'ngResource'
   'ngRoute'
   'view.wall'
+  'playground'
   'code.forms'
   'dataset.controller'
   'dataset.service'
@@ -24,8 +25,10 @@ App.config([
 
   $routeProvider
 
+    .when('/playground', { templateUrl: '/playground.html'})
     .when('/dataset', { templateUrl: '/partials/dataset.html'})
     .when('/code', { templateUrl: '/partials/code.html'})
+
     .when('/wall', {templateUrl: '/partials/wall.html'})
 
     # .when('/todo', {templateUrl: '/partials/todo.html'})

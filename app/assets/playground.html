@@ -1,0 +1,21 @@
+<div id="playground" ng-controller="PlaygroundCtrl">
+
+<nav id="control" class="navbar">
+  <div class="navbar-inner">
+    <a href="#" class="brand">playground</a>
+
+    <ul class="nav pull-right">
+      <li><button class="btn" ng-click="toggle('dataset')">dataset</button></li>
+      <li><button class="btn" ng-click="toggle('code')">code</button></li>
+      <li><button class="btn btn-success">render</button></li>
+    </ul>
+
+  </div>
+</nav>
+
+<div ng-include src="'partials/dataset.html'" ng-hide="hide_dataset"></div>
+<div ng-include src="'partials/code.html'" ng-hide="hide_code"></div>
+
+<div id="scene"></div>
+
+</div>

@@ -32,7 +32,7 @@ angular.module('dataset.controller', [])
     dataset.get "", ()->
       dataset.group_by_day()
 
-      console.log $scope.days
+      # console.log $scope.days
 
   $scope.load()
 

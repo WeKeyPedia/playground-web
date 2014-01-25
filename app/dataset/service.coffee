@@ -38,7 +38,7 @@ angular.module('dataset.service', [])
         comparator = " "+dt.getFullYear() + dt.getMonth() +  dt.getDate()
         comparator
 
-      console.log groups
+      # console.log groups
 
       _(groups).each (value, key, list)=>
         @days[key] = value
@@ -54,7 +54,7 @@ angular.module('dataset.service', [])
       for p in res
         @pages.push p
 
-      console.log @pages.length
+      # console.log @pages.length
 
     message: "coucou"
 
