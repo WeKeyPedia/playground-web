@@ -16,13 +16,10 @@ angular.module('playground', [ 'ngSanitize'])
   $rootScope.$on 'code:html', (e, html)->
     $scope.codeHtml = $sce.trustAsHtml(html)
 
-  console.log $scope
-
   $scope.toggle = (elt)->
     $scope["hide_"+elt] = if not $scope["hide_"+elt] then true else false
 
   $scope.render = ()->
-    console.log "trying to compile !"
     $scope.$broadcast("code:compile")
 
 ])
