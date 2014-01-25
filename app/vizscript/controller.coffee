@@ -1,4 +1,4 @@
-angular.module('code.forms', [])
+angular.module('code.forms', [ 'code.service' ])
 
 .controller('CodeFormsCtrl', [
   '$scope'
@@ -6,27 +6,33 @@ angular.module('code.forms', [])
   '$resource'
   '$rootScope'
   'dataset'
+  'code'
 
-($scope, $location, $resource, $rootScope, dataset) ->
+($scope, $location, $resource, $rootScope, dataset, code) ->
 
   $scope.data = dataset.data
 
-  $scope.code =
-    css: """
-      /* your CSS code goes there */
-      """
-    js: """
-      // your js code goes there
+  $scope.code = code
 
-      console.log("dataset", data)
-      """
-    html: """
-      <!-- your html code goes there -->
+  $scope.code.css = """
+    /* your CSS code goes there */
+  """
+  
+  $scope.code.js = """
+    // your js code goes there
 
-      <canvas></canvas>
-      """
+    console.log("dataset", data)
+  """
+  
+  $scope.code.html = """
+    <!-- your html code goes there -->
+    <canvas id="mycanvas"></canvas>
+  """
 
   @compile = ()->
+    console.log "trying to compile !"
+
+    $rootScope.$emit("code:html", $scope.code.html)
 
     chroot = ()=>
       window = null
@@ -42,10 +48,16 @@ angular.module('code.forms', [])
 
     chroot()
 
+  $rootScope.$on "code:compile",
+    @compile()
+
   $scope.$watchCollection "data", ()=>
     @compile()
 
   $scope.$watch "code.js", ()=>
+    @compile()
+
+  $scope.$watch "code.html", ()=>
     @compile()
 
   dataset.get()
