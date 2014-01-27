@@ -2,8 +2,24 @@
 
 <button class="btn btn-primary" ng-click="login()">login</button>
 
-<ul>
-  <li ng-repeat="v in visualizations"><a href="/playground/{{ v.id }}">[{{ v.id }}] {{ v.title }}</a></li>
-</ul>
+<h3>
+your visualizations
+
+<a href='/playground/new' class="btn btn-primary"><i class="icon-plus-sign icon-white"></i></a>
+</h3>
+
+<div ng-if="visualizations.length > 0">
+<table>
+  <tr ng-repeat="v in visualizations" ng-click="open_viz(v.id)">
+    <td>{{ v.id }}</td>
+    <td>{{ v.title }}</td>
+    <td>{{ v.updatedAt | date:"dd.MM.yyyy HH:mm:ss" }}</td>
+    <td>{{ v.createdAt | date:"dd.MM.yyyy HH:mm:ss" }}</td>
+  </tr>
+</table>
+</div>
+<div ng-if="visualizations.length == 0">
+<p>you do not have any visualization ! Want to <a href="/playground/new">create a new one</a> ? :)</p>
+</div>
 
 </div>
