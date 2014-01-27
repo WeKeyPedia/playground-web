@@ -26,6 +26,7 @@ App.config([
   $routeProvider
 
     .when('/playground', { templateUrl: '/playground.html'})
+    .when('/playground/:vizId', { templateUrl: '/playground.html'})
     .when('/dataset', { templateUrl: '/partials/dataset.html'})
     .when('/code', { templateUrl: '/partials/code.html'})
 

@@ -29,10 +29,12 @@ angular.module('code.forms', [ 'code.service' ])
     <canvas id="mycanvas"></canvas>
   """
 
+  console.log "code is ready"
+  $scope.$emit "code:ready"
+
   @compile = ()->
     console.log "trying to compile !"
 
-    $rootScope.$emit("code:html", $scope.code.html)
 
     chroot = ()=>
       window = null
@@ -48,17 +50,34 @@ angular.module('code.forms', [ 'code.service' ])
 
     chroot()
 
-  $rootScope.$on "code:compile",
+  $scope.$on "code:compile", ()=>
     @compile()
 
   $scope.$watchCollection "data", ()=>
     @compile()
 
+  $scope.$on "load.css", (e, css)=>
+    $scope.code.css = css
+
+  $scope.$on "load.js", (e, js)=>
+    $scope.code.js = js
+
+  $scope.$on "load.html", (e, html)=>
+    $scope.code.html = html
+
+  $scope.$watch "code.css", ()=>
+    $rootScope.$emit("code:css", $scope.code.css)
+    @compile()
+
   $scope.$watch "code.js", ()=>
+    $rootScope.$emit("code:js", $scope.code.js)
     @compile()
 
   $scope.$watch "code.html", ()=>
+    $rootScope.$emit("code:html", $scope.code.html)
     @compile()
+
+  
 
   dataset.get()
 ])

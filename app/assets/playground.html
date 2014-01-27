@@ -8,13 +8,14 @@
       <li><button class="btn" ng-click="toggle('dataset')">dataset</button></li>
       <li><button class="btn" ng-click="toggle('code')">code</button></li>
       <li><button class="btn btn-success" ng-click="render()">render</button></li>
-    </ul>
+      <li><button class="btn btn-danger" ng-click="save()">save</button></li>
 
+    </ul>
   </div>
 </nav>
 
-<div ng-include src="'partials/dataset.html'" ng-hide="hide_dataset"></div>
-<div ng-include src="'partials/code.html'" ng-hide="hide_code"></div>
+<div ng-include src="'/partials/dataset.html'" ng-hide="hide_dataset"></div>
+<div ng-include src="'/partials/code.html'" ng-hide="hide_code"></div>
 
 <div id="scene" ng-bind-html="codeHtml"></div>
 
