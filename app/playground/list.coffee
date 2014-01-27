@@ -30,6 +30,9 @@ angular.module('playground.list', [])
             $scope.visualizations.push v
 
 
+  $scope.open_viz = (viz_id)->
+    $location.path("/playground/#{ viz_id }")
+
   $scope.login = ()->
     login.in()
 ])

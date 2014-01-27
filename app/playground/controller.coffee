@@ -21,6 +21,8 @@ angular.module('playground', [ 'ngSanitize'])
   $scope.srv_login = login
 
   $scope.$watchCollection "srv_login.me", ()->
+    console.log "meeee", login.me.id
+
     if login.me.id
       $scope.not_logged = false
 
