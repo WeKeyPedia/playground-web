@@ -9,16 +9,32 @@ angular.module('playground', [ 'ngSanitize'])
   '$sce'
   '$http'
   'code'
+  'login'
 
-($scope, $routeParams, $location, $resource, $rootScope, $sce, $http, code) ->
+($scope, $routeParams, $location, $resource, $rootScope, $sce, $http, code, login)->
 
   $scope.hide_code = true
   $scope.hide_dataset = true
+  $scope.not_logged = true
+  $scope.me_is_owner = false
 
   $scope.code = code
+  $scope.srv_login = login
+
+  $scope.$watchCollection "srv_login.me", ()->
+    if login.me.id
+      $scope.not_logged = false
+
+      if $scope.code.userId == login.me.id or code.userId == undefined
+        $scope.me_is_owner = true
+      else
+        $scope.me_is_owner = false
+
+    else 
+      $scope.not_logged = true
+
 
   $scope.$watch "code.html", ()=>
-    console.log code.html
     $scope.codeHtml = $sce.trustAsHtml(code.html)
 
   $scope.codeHtml = $sce.trustAsHtml(code.html)
@@ -43,15 +59,17 @@ angular.module('playground', [ 'ngSanitize'])
 
     $http.get("http://api.wkpdz.11d.im/visualizations/#{viz_id}")
       .success (r)->
-        code.js = r.js
-        code.css = r.css
-        code.html = r.html
+        _(code).extend r
 
   if ($routeParams.vizId)
     $scope.load $routeParams.vizId
 
+  $scope.login = ()->
+    login.in()
+
   $scope.save = ()->
     viz_info =
+      userId: login.me.id
       css: code.css
       js: code.js
       html: code.html
