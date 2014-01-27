@@ -9,6 +9,7 @@ App = angular.module('app', [
   'login'
   'login.service'
   'playground'
+  'playground.list'
   'code.forms'
   'dataset.controller'
   'dataset.service'
@@ -28,7 +29,8 @@ App.config([
   $routeProvider
     .when('/login', { templateUrl: '/partials/login.html'})
 
-    .when('/playground', { templateUrl: '/playground.html'})
+    .when('/playground', { templateUrl: '/playgroundList.html'})
+    .when('/playground/new', { templateUrl: '/playground.html'})
     .when('/playground/:vizId', { templateUrl: '/playground.html'})
     .when('/dataset', { templateUrl: '/partials/dataset.html'})
     .when('/code', { templateUrl: '/partials/code.html'})

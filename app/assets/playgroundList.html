@@ -1,0 +1,9 @@
+<div ng-controller="playgroundListCtrl">
+
+<button class="btn btn-primary" ng-click="login()">login</button>
+
+<ul>
+  <li ng-repeat="v in visualizations"><a href="/playground/{{ v.id }}">[{{ v.id }}] {{ v.title }}</a></li>
+</ul>
+
+</div>

@@ -12,7 +12,6 @@ angular.module('playground', [ 'ngSanitize'])
   'login'
 
 ($scope, $routeParams, $location, $resource, $rootScope, $sce, $http, code, login)->
-
   $scope.hide_code = true
   $scope.hide_dataset = true
   $scope.not_logged = true
@@ -76,7 +75,7 @@ angular.module('playground', [ 'ngSanitize'])
 
     console.log viz_info
 
-    if ($routeParams.vizId)
+    if $routeParams.vizId == "new"
       viz_id = $routeParams.vizId
 
       $http.put "http://api.wkpdz.11d.im/visualizations/#{viz_id}", viz_info     
