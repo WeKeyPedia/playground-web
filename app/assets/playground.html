@@ -1,18 +1,17 @@
 <div id="playground" ng-controller="PlaygroundCtrl">
 
-<nav id="control" class="navbar">
-  <div class="navbar-inner">
-    <a href="#" class="brand"><img src="/images/logo-blue-20x20.png" style="height:20px; " /> playground</a>
-
-    <ul class="nav pull-right">
-      <li><button class="btn" ng-click="toggle('dataset')">dataset</button></li>
-      <li><button class="btn" ng-click="toggle('code')">code</button></li>
-      <li><button class="btn btn-success" ng-click="render()">render</button></li>
-      <li ng-if="not_logged"><button class="btn btn-primary" ng-click="login()">login</button></li>
-      <li ng-if="me_is_owner"><button class="btn btn-danger" ng-click="save()">save</button></li>
-
-    </ul>
+<nav id="control" class="navbar navbar-default">
+  <div class="navbar-header">
+    <a href="#" class="navbar-brand"><img src="/images/logo-blue-20x20.png" style="height:20px; " /> playground</a>
   </div>
+
+  <ul class="nav navbar-nav pull-right">
+    <li class="btn-group"><button class="btn btn-default navbar-btn" ng-click="toggle('dataset')">dataset</button><button class="btn btn-default navbar-btn" ng-click="toggle('code')">code</button></li>
+    <li><button class="btn btn-success navbar-btn" ng-click="render()">render</button></li>
+    <li ng-if="not_logged"><button class="btn btn-primary navbar-btn" ng-click="login()">login</button></li>
+    <li ng-if="me_is_owner"><button class="btn btn-danger navbar-btn" ng-click="save()">save</button></li>
+  </ul>
+
 </nav>
 
 <div ng-include src="'/partials/dataset.html'" ng-hide="hide_dataset"></div>
