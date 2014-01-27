@@ -1,11 +1,17 @@
 angular.module('login.service', [])
 
-.factory('login', ($http, $q)->
+.factory('login', ($http, $cookieStore)->
   service =
     me: {}
     
     signed_on: false
     oauth_token: ""
+
+    init: ()->
+      if $cookieStore.get("me")
+        _(@me).extend $cookieStore.get("me")
+        @oauth_token = $cookieStore.get("oauth_token")
+        @oauth_token.signed_on = true
 
     in: ()->
       # console.log "log me in mothafucka !"
@@ -27,9 +33,15 @@ angular.module('login.service', [])
               .success (data)=>
                 _(@me).extend data
 
+                $cookieStore.put "me", data
+                $cookieStore.put "oauth_token", @oauth_token
+
           else
             console.log "ko"
 
       gapi.auth.signIn(additionalParams)
+
+  service.init()
+
   service
 )
