@@ -15,6 +15,12 @@ angular.module('playground', [ 'ngSanitize'])
   $scope.hide_code = true
   $scope.hide_dataset = true
 
+  $scope.code = code
+
+  $scope.$watch "code.html", ()=>
+    console.log code.html
+    $scope.codeHtml = $sce.trustAsHtml(code.html)
+
   $scope.codeHtml = $sce.trustAsHtml(code.html)
   #   $scope.codeHtmlRaw = html
 

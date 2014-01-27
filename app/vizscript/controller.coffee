@@ -1,4 +1,4 @@
-angular.module('code.forms', [ 'code.service' ])
+angular.module('code.forms', [ 'code.service', 'ui.ace' ])
 
 .controller('CodeFormsCtrl', [
   '$scope'
