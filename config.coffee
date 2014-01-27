@@ -13,7 +13,9 @@ exports.config =
       joinTo:
         'js/app.js': /^app/
         'js/vendor.js': /^(bower_components|vendor)/
-
+        # 'mode-javascript.js': "bower_components/ace-builds/src-min-no-conflict/mode-javascript.js"
+        # 'mode-css.js': /^bower_components\/ace-builds\/mode-css/
+        # 'mode-html.js': /^bower_components\/ace-builds\/mode-html/
     stylesheets:
       joinTo:
         'css/app.css': /^(app|vendor|bower_components)/

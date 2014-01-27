@@ -6,6 +6,8 @@ App = angular.module('app', [
   'ngResource'
   'ngRoute'
   'view.wall'
+  'login'
+  'login.service'
   'playground'
   'code.forms'
   'dataset.controller'
@@ -24,6 +26,7 @@ App.config([
 ($routeProvider, $locationProvider, config) ->
 
   $routeProvider
+    .when('/login', { templateUrl: '/partials/login.html'})
 
     .when('/playground', { templateUrl: '/playground.html'})
     .when('/playground/:vizId', { templateUrl: '/playground.html'})
@@ -32,7 +35,7 @@ App.config([
 
     .when('/wall', {templateUrl: '/partials/wall.html'})
 
-    .otherwise({redirectTo: '/wall'})
+    .otherwise({redirectTo: '/login'})
 
   $locationProvider.html5Mode(true)
 ])
