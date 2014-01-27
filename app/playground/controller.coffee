@@ -78,11 +78,13 @@ angular.module('playground', [ 'ngSanitize'])
     console.log viz_info
 
     if $routeParams.vizId == "new"
-      viz_id = $routeParams.vizId
-
-      $http.put "http://api.wkpdz.11d.im/visualizations/#{viz_id}", viz_info     
-    else
       $http.post("http://api.wkpdz.11d.im/visualizations",viz_info)
         .then (r)->
           $location.path "/playground/#{r.data.id}"
+    else
+      viz_id = $routeParams.vizId
+
+      $http.put "http://api.wkpdz.11d.im/visualizations/#{viz_id}", viz_info     
+
+
 ])
