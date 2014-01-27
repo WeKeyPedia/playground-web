@@ -8,25 +8,21 @@ angular.module('playground', [ 'ngSanitize'])
   '$rootScope'
   '$sce'
   '$http'
+  'code'
 
-($scope, $routeParams, $location, $resource, $rootScope, $sce, $http) ->
+($scope, $routeParams, $location, $resource, $rootScope, $sce, $http, code) ->
 
   $scope.hide_code = true
   $scope.hide_dataset = true
 
-  $scope.codeHtml = ""
-  $scope.codeJs = ""
-  $scope.codeCss = ""
+  $scope.codeHtml = $sce.trustAsHtml(code.html)
+  #   $scope.codeHtmlRaw = html
 
-  $rootScope.$on 'code:html', (e, html)->
-    $scope.codeHtml = $sce.trustAsHtml(html)
-    $scope.codeHtmlRaw = html
+  # $rootScope.$on 'code:js', (e, js)->
+  #   $scope.codeJs = js
 
-  $rootScope.$on 'code:js', (e, js)->
-    $scope.codeJs = js
-
-  $rootScope.$on 'code:css', (e, css)->
-    $scope.codeCss = css
+  # $rootScope.$on 'code:css', (e, css)->
+  #   $scope.codeCss = css
 
   $scope.toggle = (elt)->
     console.log "yolo"
@@ -41,20 +37,18 @@ angular.module('playground', [ 'ngSanitize'])
 
     $http.get("http://api.wkpdz.11d.im/visualizations/#{viz_id}")
       .success (r)->
-        console.log r
-
-        $scope.$broadcast "load.html", r.html
-        $scope.$broadcast "load.css", r.css
-        $scope.$broadcast "load.js", r.js
+        code.js = r.js
+        code.css = r.css
+        code.html = r.html
 
   if ($routeParams.vizId)
     $scope.load $routeParams.vizId
 
   $scope.save = ()->
     viz_info =
-      css: $scope.codeCss
-      js: $scope.codeJs
-      html: $scope.codeHtmlRaw
+      css: code.css
+      js: code.js
+      html: code.html
 
     console.log viz_info
 
