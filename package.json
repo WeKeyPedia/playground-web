@@ -1,7 +1,7 @@
 {
-  "author": "Your Name",
-  "name": "package-name",
-  "description": "Package description",
+  "author": "Duong Tam Kien",
+  "name": "WeKeyPedia-web",
+  "description": "front website for wekeypedia",
   "version": "0.0.1",
   "homepage": "",
   "repository": {
