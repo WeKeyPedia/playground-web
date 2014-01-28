@@ -69,6 +69,8 @@ angular.module('playground', [ 'ngSanitize'])
     login.in()
 
   $scope.save = ()->
+    $("#button_save").button('loading');
+
     viz_info =
       userId: login.me.id
       css: code.css
@@ -77,14 +79,19 @@ angular.module('playground', [ 'ngSanitize'])
 
     console.log viz_info
 
+    console.log $routeParams
+
     if $routeParams.vizId == "new"
       $http.post("http://api.wkpdz.11d.im/visualizations",viz_info)
         .then (r)->
           $location.path "/playground/#{r.data.id}"
+          $("#button_save").button('reset');
     else
       viz_id = $routeParams.vizId
 
-      $http.put "http://api.wkpdz.11d.im/visualizations/#{viz_id}", viz_info     
+      $http.put("http://api.wkpdz.11d.im/visualizations/#{viz_id}", viz_info)
+        .then (r)->
+          $("#button_save").button('reset');
 
 
 ])

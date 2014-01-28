@@ -30,7 +30,7 @@ App.config([
     .when('/login', { templateUrl: '/partials/login.html'})
 
     .when('/playground', { templateUrl: '/playgroundList.html'})
-    .when('/playground/new', { templateUrl: '/playground.html'})
+#    .when('/playground/new', { templateUrl: '/playground.html'})
     .when('/playground/:vizId', { templateUrl: '/playground.html'})
     .when('/dataset', { templateUrl: '/partials/dataset.html'})
     .when('/code', { templateUrl: '/partials/code.html'})
