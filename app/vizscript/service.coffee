@@ -9,6 +9,15 @@ angular.module('code.service', [ "dataset.service" ])
     data: dataset.data
     is_rendering: false
 
+    loaded: false
+
+    load: (scripts)->
+      @loaded = true
+
+      @js = scripts.js
+      @css = scripts.css
+      @html = scripts.html
+
     compile: (cb)->
       @is_rendering = true
 
@@ -23,6 +32,9 @@ angular.module('code.service', [ "dataset.service" ])
 
       chroot()
       @is_rendering = false
+
+      if cb
+        cb()
 
   service
 )

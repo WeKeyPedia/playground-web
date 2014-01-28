@@ -16,64 +16,36 @@ angular.module('code.forms', [ 'code.service', 'ui.ace' ])
 
   $scope.code_visible = "javascript"
 
-  $scope.code.css = """
-    /* your CSS code goes there */
-  """
-  
-  $scope.code.js = """
-    // your js code goes there
+  if $scope.code.loaded == false
+    $scope.code.css = """
+      /* your CSS code goes there */
+    """
 
-    console.log("dataset", data)
-  """
-  
-  $scope.code.html = """
-    <!-- your html code goes there -->
-    <canvas id="mycanvas"></canvas>
-  """
+    $scope.code.js = """
+      // your js code goes there
 
-  @compile = ()->
-    # console.log "trying to compile !"
-
-    # chroot = ()=>
-    #   window = null
-    #   data = $scope.data
-
-    #   try
-    #     eval $scope.code.js
-    #     $("#editor-js").css("border-color", "green");
-    #   catch error
-    #     $("#editor-js").css("border-color", "red");
-
-    #     console.log "error", error
-
-    # chroot()
+      console.log("dataset", data)
+    """
+    
+    $scope.code.html = """
+      <!-- your html code goes there -->
+      <canvas id="mycanvas"></canvas>
+    """
 
   $scope.$on "code:compile", ()=>
-    @compile()
+    code.compile()
 
   $scope.$watchCollection "data", ()=>
-    @compile()
-
-  # $scope.$on "load.css", (e, css)=>
-  #   $scope.code.css = css
-
-  # $scope.$on "load.js", (e, js)=>
-  #   $scope.code.js = js
-
-  # $scope.$on "load.html", (e, html)=>
-  #   $scope.code.html = html
+    code.compile()
 
   $scope.$watch "code.css", ()=>
-    # $rootScope.$emit("code:css", $scope.code.css)
-    @compile()
+    code.compile()
 
   $scope.$watch "code.js", ()=>
-    # $rootScope.$emit("code:js", $scope.code.js)
-    @compile()
+    code.compile()
 
   $scope.$watch "code.html", ()=>
-    # $rootScope.$emit("code:html", $scope.code.html)
-    @compile()
+    code.compile()
 
   $scope.mode = (mode)->
     $scope.code_visible = mode  

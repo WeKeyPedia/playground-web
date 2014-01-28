@@ -23,8 +23,6 @@ angular.module('playground', [ 'ngSanitize'])
   $scope.is_saving = false
 
   $scope.$watchCollection "srv_login.me", ()->
-    console.log "meeee", login.me.id
-
     if login.me.id
       $scope.not_logged = false
 
@@ -62,7 +60,7 @@ angular.module('playground', [ 'ngSanitize'])
 
     $http.get("http://api.wkpdz.11d.im/visualizations/#{viz_id}")
       .success (r)->
-        _(code).extend r
+        code.load r
 
   if ($routeParams.vizId)
     $scope.load $routeParams.vizId
