@@ -20,6 +20,8 @@ angular.module('playground', [ 'ngSanitize'])
   $scope.code = code
   $scope.srv_login = login
 
+  $scope.is_saving = false
+
   $scope.$watchCollection "srv_login.me", ()->
     console.log "meeee", login.me.id
 
@@ -52,7 +54,7 @@ angular.module('playground', [ 'ngSanitize'])
     $scope["hide_"+elt] = if not $scope["hide_"+elt] then true else false
 
   $scope.render = ()->
-    $scope.$broadcast("code:compile")
+    code.compile()
 
   $scope.load = (viz_id)->
     # console.log "loading viz: #{viz_id}"
@@ -69,7 +71,7 @@ angular.module('playground', [ 'ngSanitize'])
     login.in()
 
   $scope.save = ()->
-    $("#button_save").button('loading');
+    $scope.is_saving = true
 
     viz_info =
       userId: login.me.id
@@ -77,21 +79,17 @@ angular.module('playground', [ 'ngSanitize'])
       js: code.js
       html: code.html
 
-    console.log viz_info
-
-    console.log $routeParams
-
     if $routeParams.vizId == "new"
       $http.post("http://api.wkpdz.11d.im/visualizations",viz_info)
         .then (r)->
           $location.path "/playground/#{r.data.id}"
-          $("#button_save").button('reset');
+          $scope.is_saving = false
     else
       viz_id = $routeParams.vizId
 
       $http.put("http://api.wkpdz.11d.im/visualizations/#{viz_id}", viz_info)
         .then (r)->
-          $("#button_save").button('reset');
+          $scope.is_saving = false
 
 
 ])

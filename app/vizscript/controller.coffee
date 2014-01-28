@@ -32,21 +32,21 @@ angular.module('code.forms', [ 'code.service', 'ui.ace' ])
   """
 
   @compile = ()->
-    console.log "trying to compile !"
+    # console.log "trying to compile !"
 
-    chroot = ()=>
-      window = null
-      data = $scope.data
+    # chroot = ()=>
+    #   window = null
+    #   data = $scope.data
 
-      try
-        eval $scope.code.js
-        $("#editor-js").css("border-color", "green");
-      catch error
-        $("#editor-js").css("border-color", "red");
+    #   try
+    #     eval $scope.code.js
+    #     $("#editor-js").css("border-color", "green");
+    #   catch error
+    #     $("#editor-js").css("border-color", "red");
 
-        console.log "error", error
+    #     console.log "error", error
 
-    chroot()
+    # chroot()
 
   $scope.$on "code:compile", ()=>
     @compile()

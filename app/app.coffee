@@ -41,3 +41,23 @@ App.config([
 
   $locationProvider.html5Mode(true)
 ])
+
+App.directive('btnLoading',()->
+  mydir = (scope, element, attrs)->
+    scope.$watch ()->
+      scope.$eval attrs.ngDisabled
+    , (newVal)->
+      if newVal
+        return undefined
+      else
+        return scope.$watch ()->
+          scope.$eval(attrs.btnLoading)
+        , (loading)->
+          
+          if loading
+            return element.button("loading")
+
+          element.button("reset")
+
+  return mydir
+)
