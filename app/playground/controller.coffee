@@ -38,7 +38,12 @@ angular.module('playground', [ 'ngSanitize'])
   $scope.$watch "code.html", ()=>
     $scope.codeHtml = $sce.trustAsHtml(code.html)
 
+  $scope.$watch "code.css", ()=>
+    $scope.codeCss = $sce.trustAsCss(code.css)
+
   $scope.codeHtml = $sce.trustAsHtml(code.html)
+  $scope.codeCss = $sce.trustAsCss(code.css)
+
   #   $scope.codeHtmlRaw = html
 
   # $rootScope.$on 'code:js', (e, js)->
