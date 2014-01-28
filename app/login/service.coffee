@@ -11,7 +11,7 @@ angular.module('login.service', [])
       if $cookieStore.get("me")
         _(@me).extend $cookieStore.get("me")
         @oauth_token = $cookieStore.get("oauth_token")
-        @oauth_token.signed_on = true
+        @signed_on = true
 
     in: ()->
       # console.log "log me in mothafucka !"
@@ -44,6 +44,7 @@ angular.module('login.service', [])
     out: ()->
       gapi.auth.signOut()
 
+      @signed_on = false
       @me = {}
       @oauth_token = ""
 

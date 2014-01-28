@@ -1,0 +1,28 @@
+<div ng-controller="menuCtrl">
+
+<nav id="main_nav" class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+
+  <div class="navbar-header">
+    <a href="/" class="navbar-brand"><span class="logo"><img src="/images/logo-blue-50x50.png" /></span><span>WeKeyPedia</span></a>
+  </div>
+
+  <ul class="nav navbar-nav navbar-right">
+    <li class="dropdown">
+      <button class="btn btn-default navbar-btn" data-toggle="dropdown"><span class="glyphicon glyphicon-list"></span></button>
+      <ul class="dropdown-menu">
+        <li class="profile" ng-if="login.signed_on">
+          <img class="center-block img-circle" src="{{ login.me.image.url }}" />
+        <li class="divider" ng-if="login.signed_on"></li>
+        <li ng-if="login.signed_on"><a href="/history">my history</a></li>
+        <li ng-if="login.signed_on"><a href="/playground">playground</a></li>
+        <li ng-if="!login.signed_on"><button class="btn btn-primary" ng-click="login.in()">login</button></li>
+        <li class="divider" ng-if="login.signed_on"></li>
+        <li ng-if="login.signed_on"><button class="btn btn-link" ng-click="login.out()">sign out</li>
+      </ul>
+    </li>
+  </ul>
+
+
+</nav>
+
+</div>

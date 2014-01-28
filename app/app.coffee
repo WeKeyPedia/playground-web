@@ -8,6 +8,7 @@ App = angular.module('app', [
   'view.wall'
   'login'
   'login.service'
+  'menu'
   'playground'
   'playground.list'
   'code.forms'
@@ -32,8 +33,10 @@ App.config([
     .when('/playground', { templateUrl: '/playgroundList.html'})
 #    .when('/playground/new', { templateUrl: '/playground.html'})
     .when('/playground/:vizId', { templateUrl: '/playground.html'})
-    .when('/dataset', { templateUrl: '/partials/dataset.html'})
-    .when('/code', { templateUrl: '/partials/code.html'})
+    
+    .when('/modules_test/dataset', { templateUrl: '/partials/dataset.html'})
+    .when('/modules_test/code', { templateUrl: '/partials/code.html'})
+    .when('/modules_test/menu', { templateUrl: '/partials/menu.html'})
 
     .when('/wall', {templateUrl: '/partials/wall.html'})
 
