@@ -11,8 +11,8 @@ exports.config =
   files:
     javascripts:
       joinTo:
-        'js/app.js': /^app/
         'js/vendor.js': /^(bower_components|vendor)/
+        'js/app.js': /^app/
       order:
         before: [
           "bower_components"
