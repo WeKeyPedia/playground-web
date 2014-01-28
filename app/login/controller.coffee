@@ -19,4 +19,7 @@ angular.module('login', ["ngSanitize"])
 
   $scope.login = ()->
     login.in()
+
+  $scope.logout = ()->
+    login.out()
 ])

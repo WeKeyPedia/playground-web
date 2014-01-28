@@ -27,6 +27,21 @@
     <!-- <script src="/js/partials.js"></script> -->
     <script src="/js/app.js"></script>
   </head>
-  <body class="container" ng-view>
+
+
+  <body>
+
+  <div class="container">
+    <nav id="main_nav" class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+
+      <div class="navbar-header">
+        <a href="/" class="navbar-brand"><span class="logo"><img src="/images/logo-blue-50x50.png" /></span><span>WeKeyPedia</span></a>
+      </div>
+
+    </nav>   
+
+    <div id="main" ng-view></div>
+  </div>
+
   </body>
 </html>

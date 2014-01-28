@@ -41,6 +41,15 @@ angular.module('login.service', [])
 
       gapi.auth.signIn(additionalParams)
 
+    out: ()->
+      gapi.auth.signOut()
+
+      @me = {}
+      @oauth_token = ""
+
+      $cookieStore.remove "me"
+      $cookieStore.remove "oauth_token"
+
   service.init()
 
   service
