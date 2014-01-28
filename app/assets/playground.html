@@ -7,9 +7,11 @@
 
   <ul class="nav navbar-nav pull-right">
     <li class="btn-group"><button class="btn btn-default navbar-btn" ng-click="toggle('dataset')">dataset</button><button class="btn btn-default navbar-btn" ng-click="toggle('code')">code</button></li>
-    <li><button class="btn btn-success navbar-btn" ng-click="render()" id="button_render" btn-loading="code.is_rendering" data-loading-text="rendering...">render</button></li>
+    <li>
+      <button
+        class="btn btn-success navbar-btn" ng-click="render()" btn-loading="code.is_rendering" data-loading-text="rendering...">render</button></li>
     <li ng-if="not_logged"><button class="btn btn-primary navbar-btn" ng-click="login()">login</button></li>
-    <li ng-if="me_is_owner"><button id="button_save" type="button" btn-loading="is_saving" data-loading-text="saving..." class="btn btn-danger navbar-btn" ng-click="save()">save</button></li>
+    <li ng-if="me_is_owner"><button type="button" btn-loading="is_saving" data-loading-text="saving..." class="btn btn-danger navbar-btn" ng-click="save()">save</button></li>
   </ul>
 
 </nav>
