@@ -4,7 +4,7 @@
 
 <button ng-click="load()">load</button>
 
-<table class="table table-stripped" ng-repeat="d in days">
+<!-- <table class="table table-stripped" ng-repeat="d in days">
 
 <thead>
 
@@ -16,6 +16,17 @@
 <tbody>
 <tr ng-repeat="e in d">
   <td><small>{{ e.time | date:"HH:mm:ss" }}</small></td>
+  <td href="{{ e.url }}">{{ e.title }}</td>
+</tr>
+ </tbody>
+
+</table> -->
+
+<table class="table table-stripped">
+
+<tbody>
+<tr ng-repeat="e in data">
+  <td><small>{{ e.time | date:"dd.MM.yyyy HH:mm:ss" }}</small></td>
   <td href="{{ e.url }}">{{ e.title }}</td>
 </tr>
  </tbody>

@@ -1,20 +1,43 @@
 <div class="module-code" ng-controller="CodeFormsCtrl">
 
-<h3>code</h3>
+<div class="panel panel-default">
 
-<div class="code-part">
-  <h4>javascript</h4>
-  <div class="editor" ui-ace="{ mode: 'javascript' }" ng-model="code.js"></div>
-</div>
+  <div class="panel-heading">
+  
+  code
 
-<div class="code-part">
-  <h4>html</h4>
-  <div class="editor" ui-ace="{ mode: 'html' }" ng-model="code.html"></div>
-</div>
+  <div class="btn-group pull-right">
+  
+    <button class="btn btn-info">{{ code_visible }}</button>
+    <button class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+      <span class="caret"></span>
+      <span class="sr-only">Toggle Dropdown</span>
+    </button>
 
-<div class="code-part">
-  <h4>css</h4>
-  <div class="editor" ui-ace="{ mode: 'css' }" ng-model="code.css"></div>
+    <ul class="dropdown-menu" role="menu">
+      <li><a href="#" ng-click="mode('javascript')">javascript</a></li>
+      <li><a href="#" ng-click="mode('html')">html</a></li>
+      <li><a href="#" ng-click="mode('css')">css</a></li>
+    </ul>    
+  </div>
+
+  </div>
+
+  <div class="panel-body">
+
+    <div class="code-part javascript" ng-if="code_visible == 'javascript'">
+      <div class="editor" ui-ace="{ mode: 'javascript' }" ng-model="code.js"></div>
+    </div>
+
+    <div class="code-part html" ng-if="code_visible == 'html'">
+      <div class="editor" ui-ace="{ mode: 'html' }" ng-model="code.html"></div>
+    </div>
+
+    <div class="code-part css" ng-if="code_visible == 'css'">
+      <div class="editor" ui-ace="{ mode: 'css' }" ng-model="code.css"></div>
+    </div>
+  </div>
+
 </div>
 
 </div>

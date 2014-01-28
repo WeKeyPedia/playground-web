@@ -14,6 +14,8 @@ angular.module('code.forms', [ 'code.service', 'ui.ace' ])
 
   $scope.code = code
 
+  $scope.code_visible = "javascript"
+
   $scope.code.css = """
     /* your CSS code goes there */
   """
@@ -73,7 +75,8 @@ angular.module('code.forms', [ 'code.service', 'ui.ace' ])
     # $rootScope.$emit("code:html", $scope.code.html)
     @compile()
 
-  
+  $scope.mode = (mode)->
+    $scope.code_visible = mode  
 
   dataset.get()
 ])
