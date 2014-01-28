@@ -14,6 +14,7 @@ App = angular.module('app', [
   'code.forms'
   'dataset.controller'
   'dataset.service'
+  'home'
   # 'app.controllers'
   # 'app.directives'
   # 'app.filters'
@@ -28,6 +29,8 @@ App.config([
 ($routeProvider, $locationProvider, config) ->
 
   $routeProvider
+    .when('/', { templateUrl: '/home.html'})
+
     .when('/login', { templateUrl: '/partials/login.html'})
 
     .when('/playground', { templateUrl: '/playgroundList.html'})
@@ -40,7 +43,7 @@ App.config([
 
     .when('/wall', {templateUrl: '/partials/wall.html'})
 
-    .otherwise({redirectTo: '/login'})
+#    .otherwise({redirectTo: ''})
 
   $locationProvider.html5Mode(true)
 ])
