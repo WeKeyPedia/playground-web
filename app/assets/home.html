@@ -9,10 +9,24 @@
 <div ng-controller="pagesListCtrl">
 
 <table class="table">
-  
-<tr ng-repeat="page in pages">
-  <td><a href="/page/{{ page.url }}">{{ page.url }}</a></td>
+
+<thead>
+<tr>
+  <th>url</th>
+  <th>hits</th>
+  <th>readers</th>
+  <th>last view</th>
 </tr>
+</thead>
+
+<tbody>
+<tr ng-repeat="page in pages | orderBy:'readers_number':true">
+  <td><a href="/page/{{ page.url }}">{{ page.url }}</a></td>
+  <td>{{ page.hits }}</td>
+  <td>{{ page.readers_number }}</td>
+  <td>{{ page.last_view | date:"dd.MM.yyyy HH:mm:ss"}}</td>
+</tr>
+</tbody>
 
 </table>
 
