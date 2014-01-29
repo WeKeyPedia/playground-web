@@ -20,6 +20,8 @@
     "ace-builds": {
       "main": [
         "src-min-noconflict/ace.js",
+        "src-min-noconflict/worker-javascript.js",
+        "src-min-noconflict/worker-css.js",
         "src-min-noconflict/mode-javascript.js",
         "src-min-noconflict/mode-css.js",
         "src-min-noconflict/mode-html.js"
