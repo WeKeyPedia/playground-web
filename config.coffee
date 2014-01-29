@@ -13,6 +13,7 @@ exports.config =
       joinTo:
         'js/vendor.js': /^(bower_components|vendor)/
         'js/app.js': /^app/
+        'worker-javascript.js': /^bower_components\/ace-builds\/src-min-noconflict\/worker-javascript.js/
       order:
         before: [
           "bower_components"

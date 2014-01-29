@@ -18,7 +18,12 @@
   },
   "overrides": {
     "ace-builds": {
-      "main": "src-min-noconflict/ace.js"
+      "main": [
+        "src-min-noconflict/ace.js",
+        "src-min-noconflict/mode-javascript.js",
+        "src-min-noconflict/mode-css.js",
+        "src-min-noconflict/mode-html.js"
+      ]
     },
     "angular-mocks": {
       "main": "README.md"
