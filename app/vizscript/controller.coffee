@@ -9,7 +9,6 @@ angular.module('code.forms', [ 'code.service', 'ui.ace' ])
   'code'
 
 ($scope, $location, $resource, $rootScope, dataset, code) ->
-
   $scope.data = dataset.data
 
   $scope.code = code
