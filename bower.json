@@ -19,6 +19,9 @@
   "overrides": {
     "angular-mocks": {
       "main": "README.md"
+    },
+    "angular-ui-bootstrap3":{     
+      "main": "ui-bootstrap.min.js",
     }
   }
 }
