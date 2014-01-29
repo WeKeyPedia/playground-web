@@ -1,4 +1,4 @@
-angular.module('home', [])
+angular.module('home', [ 'pages.controller' ])
 
 .controller('homeCtrl', [
   '$scope'

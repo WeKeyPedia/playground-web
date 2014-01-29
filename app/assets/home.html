@@ -1,5 +1,25 @@
 <div ng-controller="homeCtrl">
+
+<h3>chrome extension</h3>
+
+<h3>games</h3>
+
+<h3>wikipedia pages</h3>
+
+<div ng-controller="pagesListCtrl">
+
+<table class="table">
   
-<div>yo</div>
+<tr ng-repeat="page in pages">
+  <td><a href="/page/{{ page.url }}">{{ page.url }}</a></td>
+</tr>
+
+</table>
+
+</div>
+
+
+<h3>active users</h3>
+
 
 </div>

@@ -12,6 +12,8 @@ App = angular.module('app', [
   'playground'
   'playground.list'
   'code.forms'
+  'pages.controller'
+  'page.controller'
   'dataset.controller'
   'dataset.service'
   'home'
@@ -36,6 +38,9 @@ App.config([
     .when('/playground', { templateUrl: '/playgroundList.html'})
 #    .when('/playground/new', { templateUrl: '/playground.html'})
     .when('/playground/:vizId', { templateUrl: '/playground.html'})
+
+    .when('/page/:pageURL*', { templateUrl: '/page.html'})
+
     
     .when('/modules_test/dataset', { templateUrl: '/partials/dataset.html'})
     .when('/modules_test/code', { templateUrl: '/partials/code.html'})
