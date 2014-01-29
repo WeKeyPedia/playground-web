@@ -17,11 +17,14 @@
     "angular-ui-bootstrap3": "~0.6.0"
   },
   "overrides": {
+    "ace-builds": {
+      "main": "src-min-noconflict/ace.js"
+    },
     "angular-mocks": {
       "main": "README.md"
     },
     "angular-ui-bootstrap3":{     
-      "main": "ui-bootstrap.min.js",
+      "main": "ui-bootstrap.min.js"
     }
   }
 }
