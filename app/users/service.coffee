@@ -14,10 +14,12 @@ angular.module('users.service', [ 'dataset.service'])
         users = _(@scope.data).reduce (m, data)->
           if m[data.userId]
             m[data.userId].pages_readed = m[data.userId].pages_readed + 1
+            m[data.userId].last_read= data.time
           else
             user=
               id: data.userId
               pages_readed: 1
+              last_read: data.time
 
             m[data.userId]=user
 
@@ -36,6 +38,7 @@ angular.module('users.service', [ 'dataset.service'])
               user =
                 userId: data.id
                 pages_readed: users[data.id].pages_readed
+                last_read: users[data.id].last_read
                 name: data.displayName
                 profile_pic: data.image.url
 
