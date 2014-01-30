@@ -21,8 +21,8 @@
 </thead>
 
 <tbody>
-<tr ng-repeat="page in pages | orderBy:'readers_number':true">
-  <td><span ng-if="visited_by_me(page)" class="label label-warning">me</span></td>
+<tr ng-repeat="page in pages | orderBy:['-readers_number','-hits', '-last_view']">
+  <td><span ng-if="visited_by_me(page)" class="label label-warning">you</span></td>
   <td><a href="/page/{{ page.url }}">{{ page.url }}</a></td>
   <td>{{ page.hits }}</td>
   <td>{{ page.readers_number }}</td>
