@@ -1,10 +1,16 @@
-<div ng-controller="homeCtrl">
+<div class="home" ng-controller="homeCtrl">
+
+<ul class="nav nav-pills nav-stacked">
+  <li><a href="?#pages">Pages</a></li>
+  <li><a href="?#users">Active users</a></li>
+</ul>
+
 
 <h3>chrome extension</h3>
 
 <h3>games</h3>
 
-<h3>wikipedia pages</h3>
+<h3 id="pages">wikipedia pages</h3>
 
 <div ng-controller="pagesListCtrl">
 
@@ -34,8 +40,22 @@
 
 </div>
 
+<h3 id="users">active users</h3>
 
-<h3>active users</h3>
+<div ng-controller="usersActiveListCtrl">
 
+<table class="table">
+
+<tbody>
+<tr ng-repeat="u in users | orderBy:['-pages_readed']">
+  <td><img src="{{ u.profile_pic }}" class="img-circle" /></td>
+  <td>{{ u.name }}</td>
+  <td>{{ u.pages_readed }}</td>
+</tr>  
+</tbody>
+
+</table>
+  
+</div>
 
 </div>

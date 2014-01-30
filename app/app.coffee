@@ -8,17 +8,27 @@ App = angular.module('app', [
   'ngResource'
   'ngRoute'
   'view.wall'
+
+  'home'
+  'menu'
+
   'login'
   'login.service'
-  'menu'
+
   'playground'
   'playground.list'
+
   'code.forms'
+
   'pages.controller'
   'page.controller'
+
   'dataset.controller'
   'dataset.service'
-  'home'
+
+  'users.service'
+  'users.actives'
+
   # 'app.controllers'
   # 'app.directives'
   # 'app.filters'
