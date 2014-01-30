@@ -13,7 +13,9 @@
         <li class="profile" ng-if="login.signed_on">
           <img class="center-block img-circle" src="{{ login.me.image.url }}" />
         <li class="divider" ng-if="login.signed_on"></li>
-        <li ng-if="login.signed_on"><a href="/history">my history</a></li>
+        <li ng-if="login.signed_on"><a href="/history">your profile</a></li>
+        <li ng-if="login.signed_on"><a href="/history">your history</a></li>
+        <li ng-if="login.signed_on" class="divider"></li>
         <li ng-if="login.signed_on"><a href="/playground">playground</a></li>
         <li ng-if="!login.signed_on"><button class="btn btn-primary" ng-click="login.in()">login</button></li>
         <li class="divider" ng-if="login.signed_on"></li>
