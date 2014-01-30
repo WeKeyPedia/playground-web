@@ -1,0 +1,25 @@
+<div ng-controller="usersActiveListCtrl">
+
+<table class="table">
+
+<thead>
+<tr>
+  <th></th>
+  <th></th>
+  <th>readed pages</th>
+  <th>last read</th>
+</tr>  
+</thead>
+
+<tbody>
+<tr ng-repeat="u in users | orderBy:['-pages_readed']">
+  <td><img src="{{ u.profile_pic }}" class="img-circle" /></td>
+  <td>{{ u.name }}</td>
+  <td>{{ u.pages_readed }}</td>
+  <td>{{ u.last_read | date:"dd.MM.yyyy HH:mm:ss" }}</td>
+</tr>  
+</tbody>
+
+</table>
+  
+</div>

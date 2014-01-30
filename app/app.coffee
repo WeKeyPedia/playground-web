@@ -46,6 +46,7 @@ App.config([
     .when('/', { templateUrl: '/home.html'})
 
     .when('/login', { templateUrl: '/partials/login.html'})
+    .when('/users', { templateUrl: '/partials/users.active.html'})
 
     .when('/playground', { templateUrl: '/playgroundList.html'})
 #    .when('/playground/new', { templateUrl: '/playground.html'})

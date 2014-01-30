@@ -44,6 +44,9 @@ angular.module('users.service', [ 'dataset.service'])
 
               @users.push user
 
+      if not dataset.loaded
+        dataset.get()
+
     get: ()->
       # lol
 

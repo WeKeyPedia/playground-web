@@ -5,6 +5,7 @@ angular.module('dataset.service', [])
     data: []
     pages: []
     days: {}
+    loaded: false
 
     get: (query, cb)->
 
@@ -17,6 +18,8 @@ angular.module('dataset.service', [])
 
       $http.get("http://api.wkpdz.11d.im/steps#{query}")
         .success (data)=>
+          @data.length = 0
+
           for d in data
             u = d.url
 
@@ -31,6 +34,7 @@ angular.module('dataset.service', [])
             @data.push d
 
           if cb then cb()
+          @loaded = true
 
     group_by_day: ()->
       groups = _(@data).groupBy (d)->
