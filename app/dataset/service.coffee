@@ -8,6 +8,7 @@ angular.module('dataset.service', [])
     loaded: false
 
     get: (query, cb)->
+      @loaded = true
 
       console.log "yo ! service !"
 
@@ -34,7 +35,6 @@ angular.module('dataset.service', [])
             @data.push d
 
           if cb then cb()
-          @loaded = true
 
     group_by_day: ()->
       groups = _(@data).groupBy (d)->
