@@ -26,6 +26,7 @@ App = angular.module('app', [
   'dataset.controller'
   'dataset.service'
 
+  'user.controller'
   'users.service'
   'users.actives'
 
@@ -46,6 +47,7 @@ App.config([
     .when('/', { templateUrl: '/home.html'})
 
     .when('/login', { templateUrl: '/partials/login.html'})
+    .when('/user/:userId', { templateUrl: '/user.html'})
     .when('/users', { templateUrl: '/partials/users.active.html'})
 
     .when('/playground', { templateUrl: '/playgroundList.html'})

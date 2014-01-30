@@ -12,7 +12,7 @@
 </thead>
 
 <tbody>
-<tr ng-repeat="u in users | orderBy:['-pages_readed']">
+<tr ng-repeat="u in users | orderBy:['-pages_readed']" ng-click="go_to_user(u.userId)">
   <td><img src="{{ u.profile_pic }}" class="img-circle" /></td>
   <td>{{ u.name }}</td>
   <td>{{ u.pages_readed }}</td>

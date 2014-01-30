@@ -47,6 +47,9 @@ angular.module('users.service', [ 'dataset.service'])
       if not dataset.loaded
         dataset.get()
 
+    go_to_user: (id)->
+      window.location = "/user/#{id}"
+
     get: ()->
       # lol
 
