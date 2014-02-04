@@ -9,8 +9,6 @@ angular.module('users.service', [ 'dataset.service'])
       @scope.data = dataset.data
 
       @scope.$watchCollection 'data', ()=>
-        @users.length = 0
-
         users = _(@scope.data).reduce (m, data)->
           if m[data.userId]
             m[data.userId].pages_readed = m[data.userId].pages_readed + 1
@@ -32,7 +30,7 @@ angular.module('users.service', [ 'dataset.service'])
 
         # console.log users
 
-        for u in _(users).toArray()
+        t = (u)=>
           $http.get("https://www.googleapis.com/plus/v1/people/#{u.id}", params)
             .success (data)=>
               user =
@@ -43,6 +41,14 @@ angular.module('users.service', [ 'dataset.service'])
                 profile_pic: data.image.url
 
               @users.push user
+              # console.log @users
+
+        throttle = _.throttle(t, 0)
+
+        @users.length = 0
+
+        for u in _(users).toArray()
+          throttle(u)
 
       if not dataset.loaded
         dataset.get()
