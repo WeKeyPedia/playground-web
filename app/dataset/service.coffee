@@ -17,7 +17,7 @@ angular.module('dataset.service', [])
       else
         query = ""
 
-      $http.get("http://localhost:3000/visits#{query}")
+      $http.get("http://api.wekeypedia.net/visits#{query}")
         .success (data)=>
           @data.length = 0
 
