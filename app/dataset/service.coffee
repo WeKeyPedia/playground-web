@@ -17,12 +17,12 @@ angular.module('dataset.service', [])
       else
         query = ""
 
-      $http.get("http://api.wkpdz.11d.im/steps#{query}")
+      $http.get("http://localhost:3000/visits#{query}")
         .success (data)=>
           @data.length = 0
 
           for d in data
-            u = d.url
+            u = d.page
 
             t = u
             t = t.split "/"
@@ -31,6 +31,9 @@ angular.module('dataset.service', [])
             t = decodeURIComponent t
 
             d.title = t
+            
+            d.url = d.page
+            d.userId = d.user
 
             @data.push d
 
