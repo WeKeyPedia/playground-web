@@ -14,7 +14,7 @@
     "angular-mocks": "1.2.5",
     "angular-ui-ace": "bower",
     "bootstrap": "~3.0.3",
-    "angular-ui-bootstrap3": "~0.6.0"
+    "angular-ui-bootstrap": "~0.11.0"
   },
   "overrides": {
     "ace-builds": {
@@ -30,7 +30,7 @@
     "angular-mocks": {
       "main": "README.md"
     },
-    "angular-ui-bootstrap3":{     
+    "angular-ui-bootstrap":{     
       "main": "ui-bootstrap.min.js"
     }
   }
